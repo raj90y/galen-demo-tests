@@ -1,0 +1,20 @@
+@import common-data.gspec
+
+@objects
+    card-*          css .lilly-card
+    nav-bar         css #sub-navigation
+
+@groups
+    (card, cards)       card-*
+
+@set
+    card_count                 > 6
+
+
+= DashBoard page =
+    | test all &cards with components/my-card.gspec
+    | amount of visible &cards should be ${card_count}
+
+    @on mobile, tablet
+        nav-bar:
+            absent 

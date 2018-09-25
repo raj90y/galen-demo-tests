@@ -1,0 +1,29 @@
+@import galen-extras/galen-extras-rules.gspec
+
+@objects
+    username_textfield  input[id*="username"]
+    password_textfield  input[id*="password"]
+    login_button        input[value="Login"]
+    error_message       .message-item
+    login_box           .content-area
+
+@set
+    error_message_height                ~ 42px
+
+
+= Error message =
+    error_message:
+        height ${error_message_height}
+
+
+    @on desktop
+        error_message:
+            visible
+            inside screen
+            above username_textfield 25 to 50px
+    @on mobile
+        error_message:
+            visible
+            inside screen
+            centered horizontally inside screen
+            above username_textfield 20 to 60px

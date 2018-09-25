@@ -1,0 +1,26 @@
+@import ../common-data.gspec
+
+@objects
+    image      css .image
+    title      css .image-title.bold
+    description css div[class*="description"]>div>p
+
+
+@groups
+    (card_element, card_elements)                   title, description
+    (card_image, card_images )                      image
+    (card_description, card_descriptions)           description
+
+@set
+    card_image_top_margin    ~ 30px
+    card_horizontal_margin  ~ 16px
+    card_elements_distance  ~ 4px
+    card_image_height         60px
+    card_image_width         60px
+
+
+= Card =
+    | &card_elements should be more or less readable
+    | &card_images should have height ${card_image_height} and width ${card_image_width}
+    | &card_images should be inside parent with ${card_image_top_margin} margin
+    | &card_descriptions should be visible on desktop but absent on mobile
